@@ -7,11 +7,16 @@ class window.AppView extends Backbone.View
 
   events:
     'click .hit-button': -> @model.get('playerHand').hit()
-    'click .stand-button': -> @model.get('playerHand').stand()
+    'click .stand-button': -> 
+      @model.get('dealerHand').models[0].flip()
+      
+      @model.get('dealerHand').hit() while @model.get('dealerHand').scores()[1] < 17
+     
+        
 
   initialize: ->
     @render()
-
+    
   render: ->
     @$el.children().detach()
     @$el.html @template()
