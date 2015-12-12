@@ -11,13 +11,13 @@ class window.HandView extends Backbone.View
     @$el.children().detach()
     @$el.html @template @collection
     @$el.append @collection.map (card) ->
-      new CardView(model: card).$el
-    if !(@collection.isDealer)
-      if @collection.scores()[0] > 21
-        alert('Player Busts')
-    if (@collection.isDealer)
-      if @collection.scores()[0] > 21
-        alert('Dealer Busts')
-   
-    @$('.score').text @collection.scores()
-
+      new CardView(model: card).$el  
+    @$('.score').text @collection.bestScore()
+    # if !(@collection.isDealer)
+    #   if @collection.scores()[0] > 21
+    #     alert('Player Busts')
+    #   if @collection.bestScore() == 21
+    #     @collection.blackjack()
+    # if (@collection.isDealer)
+    #   if @collection.scores()[0] > 21
+    #     alert('Dealer Busts')

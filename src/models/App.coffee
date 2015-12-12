@@ -6,3 +6,7 @@ class window.App extends Backbone.Model
     @set 'playerHand', deck.dealPlayer()
     @set 'dealerHand', deck.dealDealer()
 
+  reset: ->
+    @set 'playerHand', @get('deck').dealPlayer()  
+    @set 'dealerHand', @get('deck').dealDealer()  
+
