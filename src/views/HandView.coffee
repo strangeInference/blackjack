@@ -15,6 +15,9 @@ class window.HandView extends Backbone.View
     if !(@collection.isDealer)
       if @collection.scores()[0] > 21
         alert('Player Busts')
+    if (@collection.isDealer)
+      if @collection.scores()[0] > 21
+        alert('Dealer Busts')
    
     @$('.score').text @collection.scores()
 
