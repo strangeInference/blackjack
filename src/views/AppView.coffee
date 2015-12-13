@@ -15,9 +15,9 @@ class window.AppView extends Backbone.View
   initialize: ->
     @render()
     
-    @model.get('playerHand').on('blackjack', @eval, @)
-    @model.get('playerHand').on('checkBust', @checkBust, @)
-    @model.get('dealerHand').on('checkBust', @checkBust, @)
+    # @model.get('playerHand').on('blackjack', @eval, @)
+    # @model.get('playerHand').on('checkBust', @checkBust, @)
+    # @model.get('dealerHand').on('checkBust', @checkBust, @)
   render: ->
     @$el.children().detach()
     @$el.html @template()
@@ -34,9 +34,9 @@ class window.AppView extends Backbone.View
     @checkBust()
     if dealer <= 21 
       if player > dealer 
-        alert('Player Wins!')
-        @model.reset()
-        @render()
+          alert('Player Wins!')
+          @model.reset()
+          @render()
       else if dealer > player
         alert('Dealer Wins')
         @model.reset()
